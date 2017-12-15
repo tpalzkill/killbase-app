@@ -7,7 +7,8 @@ exports.up = function(knex, Promise) {
   })
   .then(function () {
     return knex.schema.createTableIfNotExists('role', function (table) {
-      table.integer('person_id').references('people.person_id');
+      table.integer('person_id').references('people.person_id')
+      .onDelete('CASCADE');
       table.boolean('Assassin').defaultTo(false);
       table.boolean('Target').defaultTo(false);
       table.boolean('Client').defaultTo(false);

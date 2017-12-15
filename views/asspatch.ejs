@@ -1,0 +1,80 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>KILLbase</title>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-wrapper black">
+      <a href="/index" class="brand-logo">Kill-Base</a>
+    </div>
+  </nav>
+
+  <div class="row">
+    <form class="col s12" action='assassins/?_method=PUT' method='POST'>
+      <div class="row">
+        <div class="input-field col s6">
+          <input value="Unknown" id="full_name" type="text" class="validate" name="full_name">
+          <label for="Full_name">Full Name</label>
+        </div>
+        <div class="input-field col s2">
+          <input id="age" type="number" class="validate" name="age">
+          <label for="age">Age</label>
+        </div>
+        <div class="input-field col s2">
+          <input id="min_price" type="number" class="validate" name="min_price">
+          <label for="min_price">Base-Fee</label>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Unknown" id="code_name" type="text" class="validate" name="code_name">
+          <label for="code_name">codename</label>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="input-field col s10">
+          <input id="weapon" type="text" class="validate" name='weapon'>
+          <label for="weapon">Weapon of Choice</label>
+        </div>
+        <div class="input-field col s1">
+          <input id="kills" type="number" class="validate" name='kills'>
+          <label for="kills">Kill Count</label>
+        </div>
+        <div class="input-field col s1">
+          <input id="rating" type="number" class="validate" name='rating'>
+          <label for="rating">sKILL LvL</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="contact_info" type="email" class="validate" name='contact_info'>
+          <label for="contact_info">Contact Info</label>
+        </div>
+      </div>
+      <div class="row">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Update
+        <i class="material-icons right">cloud</i>
+    </button>
+</div>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+  </script>
+</body>

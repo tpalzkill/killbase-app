@@ -1,8 +1,46 @@
 body {
-  padding: 50px;
+  padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+h1 {
+  display: inline-flex;
+}
+.material-icons {
+  display: inline-flex;
+  font-size: 300px;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.info {
+  margin: 10px;
+
+}
+
+.names-section, .assassin-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left:5%;
+  margin-right: 5%;
+}
+.names-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.codename {
+  margin-left: 10%;
 }

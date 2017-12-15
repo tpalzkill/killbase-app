@@ -122,7 +122,7 @@ exports.seed = function(knex, Promise) {
           assassin_id: ass[7], code_name: 'La Femme Nikita'
         },
           {
-          assassin_id: ass[8], code_name: 'The Jackal'
+          assassin_id: ass[8], code_name: 'Solenya'
         }
       ])
     })

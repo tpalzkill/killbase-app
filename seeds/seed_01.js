@@ -8,7 +8,7 @@ exports.seed = function(knex, Promise) {
         .then(function(){
       // Inserts seed entries
       return knex('people').insert([
-        {full_name: 'ALexander Duggan', deceased: false},
+        {full_name: 'Alexander Duggan', deceased: false},
         {full_name: 'Anton Chigurh', deceased: false},
         {full_name: null , deceased: false },
         {full_name: 'Jason Bourne', deceased: false},

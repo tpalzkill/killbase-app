@@ -1,0 +1,77 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>KILLbase</title>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-wrapper black">
+      <a href="/index" class="brand-logo">Kill-Base</a>
+    </div>
+  </nav>
+  <% let ids = [];%>
+  <% for (var i = 0; i < assassins.length; i++) { %>
+    <% if (ids.includes(assassins[i].full_name)===false) { %>
+    <% ids.push(assassins[i].full_name) %>
+
+    <div class="divider"></div>
+
+    <a href="/assassins/<%=assassins[i].person_id%>" class="section">
+
+
+
+      <section class="names-section">
+        <h5><%=assassins[i].full_name%></h5>
+        <h5 class="codename"><i><%=assassins[i].code_name%></i></h5>
+      </section>
+      <section class="assassin-info">
+        <section>
+          <h6 class='info'>ID : <%=assassins[i].person_id%></h6>
+          <h6 class='info'>Kills : <%=assassins[i].kills%></h6>
+          <h6 class='info'>Rating : <%=assassins[i].rating%></h6>
+        </section>
+        <section>
+          <h6 class='info'>Weapon of Choice : <%=assassins[i].weapon%></h6>
+          <h6 class='info'>Contact Info : <%=assassins[i].contact_info%></h6>
+        </section>
+        <section class='buttons'>
+        <a href='assassins/asspatch/<%=assassins[i].person_id%>' class="waves-effect waves-light btn">Edit</a>
+        <form action='assassins/<%=assassins[i].person_id%>?_method=DELETE' method='POST'>
+        <button class="waves-effect waves-light btn" type='submit' name='action'>Delete</button>
+          </form>
+        </section>
+      </section>
+
+
+</a>
+
+    </div>
+
+
+
+    <% } %>
+    <% } %>
+    <div class='row'>
+      <div class='col-s6'></div>
+      <div class='col-s6'>
+        <a href='assassins/create' class="waves-effect waves-light btn-large">Create New Assassin</a>
+      </div>
+    </div>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="index.js"></script>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="html2canvas.js"></script>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <script>
+        // $(document).ready(function() {
+        //   $('select').material_select();
+        // });
+      </script>
+</body>
