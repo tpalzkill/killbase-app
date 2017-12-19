@@ -67,7 +67,7 @@ h3 {
 }
 .buttons {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-around;
 }
 .codename {
@@ -76,7 +76,6 @@ h3 {
 .icongang{
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 .select {
   width: 200%;

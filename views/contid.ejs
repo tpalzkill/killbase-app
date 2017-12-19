@@ -14,17 +14,22 @@
       </form>
       </section>
     <section class='select'>
-<form>
+<form action='/contracts/<%=contract[0].contract_id%>/' method='POST' >
 
-      <label>Assign an Assassin:</label>
-      <select class="browser-default" >
+      <div class='row'>
+      <div class='input-field col s12'>
+      <select name= 'selectField' id='sourceSelector'>
         <option value="" disabled selected>Choose your assassin</option>
         <% for (var i = 0; i < asshats.length; i++) { %>
 
-    <option value="<%=i%>">'<%=asshats[i]%>'</option>
+    <option value="<%=asshats[i]%>">'<%=asshats[i]%>'</option>
 <% } %>
   </select>
-  <button class="grey darken-3 btn waves-effect waves-light" type="submit" name="action">Assign</button>
+  <label>Assign an Assassin:</label>
+
+</div>
+</div>
+  <button class="grey darken-3 btn waves-effect waves-light" id=type="submit" name="action">Assign</button>
 </form>
     </section>
     </section>

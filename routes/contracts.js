@@ -60,6 +60,20 @@ console.log(formInfo);
       res.status(500)
     });
 })
+router.post('/:id', function(req, res, next) {
+  let contId = req.params.id;
+let ass = (req.body).selectField;
+console.log(ass);
+
+knex('people')
+  .leftJoin('assassins', 'assassins.person_id', 'people.person_id')
+  .where('people.full_name', ass)
+
+.then(function(pass) {
+  let assassinId= pass[0].assassin_id;
+  console.log(assassinId);
+})
+})
 /* GET assassins home page. */
 router.get('/', function(req, res, next) {
   // Get all assassins from db.
