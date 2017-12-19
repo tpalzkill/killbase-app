@@ -1,44 +1,42 @@
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>KILLbase</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>KILLbase</title>
 </head>
 
-<body>
+<body class='bg'>
+  <head>
   <nav>
-   <div class="nav-wrapper black">
-     <a href="#" class="brand-logo">Kill-Base</a>
-   </div>
- </nav>
- <div class="container">
+    <div class="nav-wrapper grey lighten-2">
+      <a href="/index" class="brand-logo center"><img  src='/images/logo.png' alt="logo" width='30%'/ ></a>
+    </div>
+  </nav>
+</head>
+<%- include spacing.ejs %>
+<%- include spacing.ejs %>
+
    <div class="row">
      <br />
      <br />
    </div>
-   <div class="row butt">
-     <div class="col s6"><a href='/assassins'>
-       <i class="material-icons">subdirectory_arrow_left</i></a></div>
-     <div class="col s6"><a href='/contracts'>
-       <i class="material-icons">subdirectory_arrow_right</i></a></div>
-   <div class="row">
-     <div class="col s6"><h1>Assassins</h1></div>
-     <div class="col s6"><h1>Contracts</h1></div>
-   </div>
+   <div class='container icongang'>
+     <div>
+       <a href='/assassins'>
+          <img src="/images/whiteAss.png" height='200'/></a>
+     </div>
+     <div>
+       <a href='/contracts'>
+          <img src="/images/whitecon.png" height='200'/></a>
+     </div>
  </div>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="index.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="html2canvas.js"></script>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-    <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('select').material_select();
-    });
-  </script>
+  <footer>
+  <div class="section">
+    <div class="container footer">
+      <a href="/index" class="brand-logo center"><img  src='/images/logo.png' alt="logo" width='30%'/ ></a>
+      <p class="shamelessPlug center"> Created by: YA boy TP</p>
+    </div>
+  </div>
+</footer>
+<%- include scripts.ejs %>
 </body>

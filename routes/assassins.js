@@ -3,6 +3,52 @@ var router = express.Router();
 var knex = require('../knex');
 
 /* GET assassins home page. */
+router.put('/:id', function(req,res) {
+let id = Number(req.params.id);
+let upInfo = req.body;
+let updateAss = {
+  weapon: upInfo.weapon,
+  contact_info: upInfo.contact_info,
+  age: Number(upInfo.age),
+  min_price: Number(upInfo.min_price),
+  rating: Number(upInfo.rating),
+  kills: Number(upInfo.kills)
+};
+let updateCodenames = {
+  code_name: upInfo.code_name
+};
+let updatePeople = {
+  full_name: upInfo.full_name
+};
+
+
+  // knex('people')
+  // .where('people.person_id', id)
+  // .join('assassins', 'people.person_id', 'assassins.person_id')
+  // .innerJoin('codenames', 'codenames.assassin_id', 'assassins.assassin_id')
+  // .then(function(ogInfo) {
+    return knex('people')
+    .where('person_id', id)
+    .update(updatePeople)
+  .then(function(peepid){
+    return knex('assassins')
+    .where('person_id', id)
+    .returning('assassin_id')
+    .update(updateAss)
+  }).then(function(assId){
+    console.log('2nd nonsense');
+    return knex('codenames')
+    .where('codenames.assassin_id', Number(assId))
+    .update(updateCodenames)
+  })
+  .then(function(){
+    res.redirect('/assassins')
+  })
+  .catch(function(error){
+    console.log(error);
+  })
+
+})
 router.get('/', function(req, res, next) {
   // Get all assassins from db.
   knex.select('assassins.person_id', 'assassins.assassin_id', 'people.full_name', 'assassins.min_price', 'assassins.rating', 'assassins.contact_info', 'assassins.weapon', 'assassins.kills', 'codenames.code_name',).from('people').innerJoin('assassins', 'assassins.person_id', 'people.person_id').innerJoin('codenames', 'codenames.assassin_id', 'assassins.assassin_id')
@@ -22,12 +68,28 @@ router.get('/create', function(req, res) {
   res.render('create');
 });
 router.get('/asspatch/:id', function(req, res) {
-  res.render('asspatch')
+  let id = req.params.id;
+    console.log(id);
+  knex.select('*')
+    .from('people')
+    .join('assassins', 'people.person_id', 'assassins.person_id')
+    .innerJoin('codenames', 'codenames.assassin_id', 'assassins.assassin_id')
+    .where('people.person_id', id)
+    .first()
+    .then(function(butthead) {
+      res.render('asspatch', {
+        assassin: butthead
+      });
+    })
+    .catch(function(error) {
+      res.sendStatus(500);
+    });
 })
 
 
 router.get('/:id', function(req, res, next) {
   let id = req.params.id;
+
   knex.select('assassins.kills', 'assassins.assassin_id', 'people.full_name', 'assassins.min_price', 'assassins.rating', 'assassins.kills', 'assassins.weapon', 'assassins.contact_info', 'codenames.code_name')
     .from('people')
     .join('assassins', 'people.person_id', 'assassins.person_id')
@@ -56,6 +118,7 @@ router.delete('/:id', function (req, res) {
 })
 router.post('/', (req, res) => {
   const formInfo = req.body;
+  console.log(formInfo);
   for (let requiredParameter of ['weapon', 'kills', 'rating']) {
     if (!formInfo[requiredParameter]) {
       return res
@@ -106,24 +169,6 @@ router.post('/', (req, res) => {
   // res.send(req.body);
 });
 
-router.put('/:id', function(req,res) {
-let upId= req.params.id;
 
-let updateAss = {
-  weapon: upInfo.weapon,
-  contact_info: upInfo.contact_info,
-  age: Number(upInfo.age),
-  min_price: Number(upInfo.min_price),
-  rating: Number(upInfo.rating),
-  kills: Number(upInfo.kills)
-};
-let updateCodenames = {
-  code_name: formInfo.code_name
-};
-let updatePeople = {
-  full_name: formInfo.full_name
-};
-res.render(upInfo)
-})
 
 module.exports = router;

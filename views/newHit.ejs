@@ -1,0 +1,51 @@
+<%- include navbar.ejs %>
+<%- include spacing.ejs %>
+
+  <div class="row">
+
+    <form class="col s12" action='/contracts' method='POST'>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Unknown" id="target_name" type="text" class="validate" name="target_name">
+          <label for="target_name">Target Full Name</label>
+        </div>
+
+        <div class="input-field col s2">
+          <input placeholder=0 id="sec_level" type="number" class="validate" name="sec_level">
+          <label for="sec_level">Target Security Level</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s10">
+          <input id="location" type="text" class="validate" name='location'>
+          <label for="location">Target Location</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s10">
+          <input id="photo" type="url" class="validate" name='photo'>
+          <label for="photo">Target Photo URL</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="session:user" id="client_name" type="text" class="validate" name="client_name">
+          <label for="client_name">Your Name</label>
+        </div>
+        <div class="input-field col s2">
+          <input id="budget" type="number" class="validate" name="budget">
+          <label for="budget">Budget</label>
+        </div>
+      </div>
+
+
+      <div class="row">
+    <button class="grey darken-3 btn waves-effect waves-light" type="submit" name="action">Create
+        <i class="material-icons right">cloud</i>
+    </button>
+</div>
+    </form>
+  </div>
+<%- include scripts.ejs %>
+
+</body>
