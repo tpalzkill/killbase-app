@@ -23,5 +23,26 @@
     <a class="waves-effect waves-light grey darken-3 btn">Delete</a>
     </section>
   </section>
+  <div class="divider black"></div>
+    <section class='assignedConts'>
+      <div class='row title'>
+        <h5 class='col-s6 center'>Assigned Contracts</h5>
+      </div>
+      <% for (var i = 0; i < blah.length; i++) { %>
+        <div class='row'>
+          <div class='container asscon z-depth-2'>
+            <div class='col-s2'>
+<img src='<%=blah[i].photo%>' alt="Target Photo" width='150' height='150' class='circle' >
+            </div>
+            <div class='col-s5'>
+            <h6 class='info'>Target Name : <%=blah[i].target%></h6>
+            <h6 class='info'>Kills : <%=blah[i].location%></h6>
+            <h6 class='info'>Rating : <%=blah[i].client%></h6>
+            <h6 class='info'>Rating : <%=blah[i].sec_level%></h6>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </section>
 <%- include scripts.ejs %>
 </body>

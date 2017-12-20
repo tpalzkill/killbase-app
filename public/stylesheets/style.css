@@ -56,10 +56,16 @@ h3 {
 .names-section, .assassin-info {
   display: flex;
   flex-direction: row;
-  justify-content: space-betwee;
+  justify-content: space-between;
 
 }
 .names-section {
+  padding: 5%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.asscon {
   padding: 5%;
   display: flex;
   justify-content: space-evenly;

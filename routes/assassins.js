@@ -67,7 +67,6 @@ router.get('/', function(req, res, next) {
 router.get('/create', function(req, res) {
   res.render('create');
 });
-
 router.get('/asspatch/:id', function(req, res) {
   let id = req.params.id;
     console.log(id);
@@ -90,56 +89,40 @@ router.get('/asspatch/:id', function(req, res) {
 
 router.get('/:id', function(req, res, next) {
   let id = req.params.id;
-  let most = [];
-  let clientName = [];
-  let assassins =[];
-  knex('people')
-    .leftJoin('clients', 'people.person_id', 'clients.person_id')
-    .leftJoin('targets', 'people.person_id', 'targets.person_id')
-    .leftJoin('contracts as c1', 'targets.target_id', 'c1.target_id')
-    .leftJoin('contracts as c2', 'clients.client_id', 'c2.client_id')
-      .select('targets.target_id', 'targets.location','targets.photo', 'targets.sec_level', 'people.full_name', 'c1.budget', 'c1.completed', 'c1.client_id', 'c1.contract_id', 'c1.completed_by_ass_id')
-      .where('c1.contract_id', id)
-      .first()
-  .then(function(first) {
-    most.push(first);
-  })
-  .then(function(){
-    return knex('assassins')
-      .leftJoin('people', 'people.person_id', 'assassins.person_id')
-  .then(function(asshats){
-    asshats.forEach(function(ass){
-      assassins.push(ass.full_name);
-    })
-  })
-  })
-  .then(function() {
-    knex('people')
-      .leftJoin('clients', 'people.person_id', 'clients.person_id')
-      .leftJoin('contracts', 'clients.client_id', 'contracts.client_id')
-        .where('contracts.contract_id', id)
-  .then(function(clientNames) {
-    console.log('contract:', most, 'otherShit', clientNames);
-        res.render('contid', {
-          otherShit: clientNames,
-          contract: most,
-          asshats: assassins
-        })
-      })
-  })
+  let ass_conStuff = [];
 
+        knex('ass_con')
+          .innerJoin('contracts', 'contracts.contract_id', 'ass_con.contract_id')
+          .innerJoin('targets', 'targets.target_id', 'contracts.target_id')
+          .innerJoin('people as target_people', 'target_people.person_id', 'targets.person_id')
+          .innerJoin('clients', 'clients.client_id', 'contracts.client_id')
+          .innerJoin('people as client_people', 'client_people.person_id', 'clients.person_id')
+          .select({
+            target: 'target_people.full_name'
+          }, {
+            client: 'client_people.full_name'
+          }, 'targets.location', 'targets.sec_level', 'targets.photo')
+          .where('ass_con.assassin_id', id)
+      .then(function(hello){
+        ass_conStuff.push(hello);
+      })
+      .then(function(){
   knex.select('assassins.kills', 'assassins.assassin_id', 'people.full_name', 'assassins.min_price', 'assassins.rating', 'assassins.kills', 'assassins.weapon', 'assassins.contact_info', 'codenames.code_name')
     .from('people')
     .join('assassins', 'people.person_id', 'assassins.person_id')
     .innerJoin('codenames', 'codenames.assassin_id', 'assassins.assassin_id')
-    .where('people.person_id', id)
+    .where('assassins.assassin_id', id)
     .first()
     .then(function(reptar) {
+      console.log(ass_conStuff);
       res.render('assid', {
+        blah : ass_conStuff[0],
         assassin: reptar
       });
     })
+    })
     .catch(function(error) {
+      console.log(error);
       res.sendStatus(500);
     });
 });
