@@ -1,57 +1,59 @@
 <%- include navbar.ejs %>
-<%- include spacing.ejs %>
+  <%- include spacing.ejs %>
 
-  <section class="z-depth-2 names-section">
-    <section class= container profpic>
-      <img class='materialboxed' src='<%=contract[0].photo%>' alt="Target Photo" width='300' data-caption= '<%=contract[0].full_name%>'>
-      <h3 class="red-text text-darken-4 "><%=contract[0].full_name%></h3>
-    </section>
-    <section class='buttons'>
-      <section class='firstbuttons'>
-    <a href='assassins/asspatch/<%=contract[0].person_id%>' class="waves-effect waves-light grey darken-3 btn">Edit</a>
-    <form action='assassins/<%=contract[0].person_id%>?_method=DELETE' method='POST'>
-    <button class="waves-effect waves-light grey darken-3 btn" type='submit' name='action'>Delete</button>
-      </form>
+    <section class="z-depth-2 asscon">
+      <section class='container profpic'>
+        <img class='materialboxed' src='<%=contract[0].photo%>' alt="Target Photo" width='300' data-caption='<%=contract[0].full_name%>'>
+        <h3 class="red-text text-darken-4 "><%=contract[0].full_name%></h3>
       </section>
-    <section class='select'>
-<form action='/contracts/<%=contract[0].contract_id%>/' method='POST' >
+      <section class='buttons'>
+        <section class='firstbuttons'>
+          <a href='assassins/asspatch/<%=contract[0].person_id%>' class="waves-effect waves-light grey darken-3 btn">Edit</a>
+          <form action='assassins/<%=contract[0].person_id%>?_method=DELETE' method='POST'><br />
+            <button class="waves-effect waves-light grey darken-3 btn" type='submit' name='action'>Delete</button>
+          </form>
 
-      <div class='row'>
-      <div class='input-field col s12'>
-      <select name= 'selectField' id='sourceSelector'>
+        </section>
+        <section class='selectField'>
+          <form action='/contracts/<%=contract[0].contract_id%>/' method='POST'>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <select name='selectField' id='sourceSelector'>
         <option value="" disabled selected>Choose your assassin</option>
         <% for (var i = 0; i < asshats.length; i++) { %>
 
     <option value="<%=asshats[i]%>">'<%=asshats[i]%>'</option>
 <% } %>
   </select>
-  <label>Assign an Assassin:</label>
+                <label>Assign an Assassin:</label>
 
-</div>
-</div>
-  <button class="grey darken-3 btn waves-effect waves-light" id=type="submit" name="action">Assign</button>
-</form>
+              </div>
+            </div>
+            <button class="grey darken-3 btn waves-effect waves-light" id=type="submit" name="action">Assign</button>
+          </form>
+
+        </section>
+      </section>
     </section>
-    </section>
-  </section>
-  <%- include spacing.ejs %>
-  <div class="divider black"></div>
     <%- include spacing.ejs %>
-  <section class="assassin-info z-depth-2">
-    <section>
+      <div class="divider black"></div>
+      <%- include spacing.ejs %>
+        <section class="assassin-info z-depth-2">
+          <section>
 
-      <h5 class='info'>Contract Client: <%=otherShit[0].full_name%></h5>
-      <h5 class='info'>Location : <%=contract[0].location%></h5>
-      <h5 class='info'>Target ID : <%=contract[0].target_id%></h5>
-      <h5 class='info'>Client ID : <%=contract[0].client_id%></h5>
-      <h5 class='info'>Budget : <%=contract[0].budget%></h5>
-    </section>
-    <section>
-      <h5 class='info'>Security Level : <%=contract[0].sec_level%></h5>
-      <h5 class='info'>Completed : <%=contract[0].completed%></h5>
-      <h5 class='info'>Completed by : <%=contract[0].completed_by_ass_id%></h5>
-    </section>
+            <h5 class='info'>Contract Client: <%=otherShit[0].full_name%></h5>
+            <h5 class='info'>Location : <%=contract[0].location%></h5>
+            <h5 class='info'>Target ID : <%=contract[0].target_id%></h5>
+            <h5 class='info'>Client ID : <%=contract[0].client_id%></h5>
+            <h5 class='info'>Budget : <%=contract[0].budget%></h5>
+          </section>
+          <section>
+            <h5 class='info'>Security Level : <%=contract[0].sec_level%></h5>
+            <h5 class='info'>Completed : <%=contract[0].completed%></h5>
+            <h5 class='info'>Completed by : <%=contract[0].completed_by_ass_id%></h5>
+          </section>
 
-  </section>
-<%- include scripts.ejs %>
-</body>
+        </section>
+        <%- include scripts.ejs %>
+          </body>
