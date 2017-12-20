@@ -1,4 +1,4 @@
-var environment = process.env.NODE_ENV || 'production ';
+var environment = process.env.NODE_ENV || 'production';
 var config = require('./knexfile')[environment];
 var knex = require('knex')(config);
 
