@@ -64,6 +64,7 @@ router.post('/:id', function(req, res, next) {
   let contId = req.params.id;
 let ass = (req.body).selectField;
 console.log(ass);
+let forAssCon = {contract_id : contId,};
 
 knex('people')
   .leftJoin('assassins', 'assassins.person_id', 'people.person_id')
@@ -72,6 +73,14 @@ knex('people')
 .then(function(pass) {
   let assassinId= pass[0].assassin_id;
   console.log(assassinId);
+  forAssCon.assassin_id = assassinId;
+})
+.then(function(){
+  return knex('ass_con')
+  .insert(forAssCon)
+})
+.then(function(){
+  res.redirect('/contracts')
 })
 })
 /* GET assassins home page. */
