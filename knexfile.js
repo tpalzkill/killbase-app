@@ -29,11 +29,12 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
-      database: 'killbase_app',
-      user:     'username',
-      password: 'password'
+      host: 'ec2-54-83-60-13.compute-1.amazonaws.com',
+      database: 'd8qkp65pctkim8',
+      user:     'mmdjombhttgvrw',
+      password: '9ae3a5ddc5805f2373a21197d02cbfcda474e92a4ff85ea3e484ff33dfc1069d'
     },
     pool: {
       min: 2,
