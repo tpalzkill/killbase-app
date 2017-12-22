@@ -101,10 +101,9 @@ router.get('/', function(req, res, next) {
         .leftJoin('clients', 'people.person_id', 'clients.person_id')
         .leftJoin('contracts', 'clients.client_id', 'contracts.client_id')
         .then(function(clientInfo) {
-          console.log(fullPeopleArr ,clientInfo);
           res.render('contracts', {
             clients: fullPeopleArr,
-            contracts: clientInfo
+            contracts: clientInfo,
           });
         })
     })
