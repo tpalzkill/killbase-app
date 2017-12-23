@@ -102,7 +102,7 @@ router.get('/', function(req, res, next) {
         .leftJoin('contracts', 'clients.client_id', 'contracts.client_id')
         .then(function(clientInfo) {
           res.render('contracts', {
-            fugger: fullPeopleArr,
+            fugger: fullPeopleArr[0],
             contracts: clientInfo,
           });
         })
