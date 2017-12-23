@@ -94,6 +94,7 @@ router.get('/', function(req, res, next) {
     .leftJoin('contracts as c2', 'clients.client_id', 'c2.client_id')
     .select('targets.target_id', 'targets.location','targets.photo', 'targets.sec_level','people.full_name', 'c1.budget', 'c1.completed', 'c1.client_id', 'c1.contract_id', 'c1.completed_by_ass_id')
     .then(function(peopleArr) {
+      console.log(peopleArr);
       fullPeopleArr = peopleArr;
     })
     .then(function() {
