@@ -2,7 +2,7 @@
 <%- include spacing.ejs %>
 
   <% let ids = [];%>
-  <% for (var i = 0; i < fugger.length; i++) { %>
+  <% for (var i = 0; i < contracts.length; i++) { %>
 
 
     <div class="divider black"></div>
@@ -16,14 +16,14 @@
       <section class="names-section">
         <img src='<%=fugger[i].photo%>' alt="Target Photo" width='150' height='150' class='circle' >
         <h5><%=fugger[i].full_name%></h5>
-        <h5 class="codename"><i><%=contracts[i].contract_id%></i></h5>
+        <h5 class="codename"><i><%=fugger[i].contract_id%></i></h5>
       </section>
       </a>
       <section class="assassin-info">
         <section>
           <h6 class='info'>Contract Client: <%=contracts[i].full_name%></h6>
           <h6 class='info'>Location : <%=fugger[i].location%></h6>
-          <h6 class='info'>Target ID : <%=contracts[i].target_id%></h6>
+          <h6 class='info'>Target ID : <%=fugger[i].target_id%></h6>
           <h6 class='info'>Client ID : <%=contracts[i].client_id%></h6>
           <h6 class='info'>Budget : <%=contracts[i].budget%></h6>
         </section>
