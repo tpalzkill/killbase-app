@@ -2,7 +2,7 @@
 <%- include spacing.ejs %>
 
   <% let ids = [];%>
-  <% for (var i = 0; i < contracts.length; i++) { %>
+  <% for (var i = 0; i < fugger.length; i++) { %>
 
 
     <div class="divider black"></div>
@@ -14,21 +14,21 @@
     <a href="/contracts/<%=contracts[i].contract_id%>" class="section">
     <div class ='container conts'>
       <section class="names-section">
-        <img src='<%=clients[i].photo%>' alt="Target Photo" width='150' height='150' class='circle' >
-        <h5><%=clients[i].full_name%></h5>
+        <img src='<%=fugger[i].photo%>' alt="Target Photo" width='150' height='150' class='circle' >
+        <h5><%=fugger[i].full_name%></h5>
         <h5 class="codename"><i><%=contracts[i].contract_id%></i></h5>
       </section>
       </a>
       <section class="assassin-info">
         <section>
           <h6 class='info'>Contract Client: <%=contracts[i].full_name%></h6>
-          <h6 class='info'>Location : <%=clients[i].location%></h6>
+          <h6 class='info'>Location : <%=fugger[i].location%></h6>
           <h6 class='info'>Target ID : <%=contracts[i].target_id%></h6>
           <h6 class='info'>Client ID : <%=contracts[i].client_id%></h6>
           <h6 class='info'>Budget : <%=contracts[i].budget%></h6>
         </section>
         <section>
-          <h6 class='info'>Security Level : <%=clients[i].sec_level%></h6>
+          <h6 class='info'>Security Level : <%=fugger[i].sec_level%></h6>
           <h6 class='info'>Completed : <%=contracts[i].completed%></h6>
           <h6 class='info'>Completed by:  <%=contracts[i].completed_by_ass_id%></h6>
         </section>
